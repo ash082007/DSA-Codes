@@ -1,0 +1,1 @@
+Just a place where I dump my DSA code while trying to survive the grind. it passed the test cases on the first try and I am never touching it again. Feel free to judge the code, copy it if you're stuck. 
