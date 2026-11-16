@@ -14,7 +14,7 @@ void bubblesort(vector<int>& arr){
 			if(!check){
 			break;
 			}
-	}
+	}		
 }
 void selectionsort(vector<int>& arr){
 	int s=arr.size(),min;
@@ -71,17 +71,35 @@ void merge(vector<int>& arr,int st,int mid,int end){
 	}
 }
 void mergesort(vector<int>& arr,int st,int end){
-
-		int mid=st+(end-st)/2;
+	int mid=st+(end-st)/2;
 		if(st<end){
 			mergesort(arr,st,mid);
 			mergesort(arr,mid+1,end);
 			merge(arr,st,mid,end);	
 		}
 }
+int partition(vector<int>& arr,int st,int end){
+int pvt=end,idx=st-1;
+	for(int j=st;j<end;j++){
+		if(arr[j]<=arr[pvt]){
+			idx++;
+			swap(arr[idx],arr[j]);
+		}}
+	idx++;
+	swap(arr[idx],arr[pvt]);
+	return idx;
+}
+void quicksort(vector<int>& arr,int st,int end){
+	if(st<end){
+	int idx=partition(arr,st,end);
+	quicksort(arr,st,idx-1);
+	quicksort(arr,idx+1,end);
+}
+ return;
+}
 int main(){
 	vector<int> hello={5,4,6,2,7};
-	mergesort(hello,0,hello.size()-1);
+	quicksort(hello,0,hello.size()-1);
 	for(int f:hello){
 		cout<<f<<" ";
 	}
